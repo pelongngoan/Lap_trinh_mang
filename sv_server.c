@@ -13,7 +13,7 @@ void write_file(char *buf){
     f = fopen("./txt/sv_log.txt", "a"); 
 
     fwrite(buf, sizeof(char), strlen(buf), f);
-    // fwrite("\n", 1,sizeof(char), f);
+
     fclose(f);
 }
 
@@ -54,7 +54,7 @@ int main(){
         perror("listen() failed");
         return 1;
     }
-    // khai bao socket
+ 
     struct sockaddr_in client_addr;
     int client_addr_len = sizeof(client_addr);
 
@@ -79,7 +79,7 @@ int main(){
             buf[ret] = 0;
         write_log(buf, buf_ip);
     }
-    // fclose(f);
+
     close(client);
     close(listener);
 }
