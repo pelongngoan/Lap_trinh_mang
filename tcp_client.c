@@ -16,10 +16,10 @@ int main(int argc, char *argv[]){
     char *ip = argv[1];
     char *host = argv[2];
 
-    // khai bao socket
+
     int client = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     
-    // khai bao dia chi server
+
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = inet_addr(ip);
@@ -38,12 +38,12 @@ int main(int argc, char *argv[]){
         printf("Cannot connect to server\n");
         return 1;
     }
-    // nhan tin nhan tu server
+   
     char buf_recv[2048];
     int len = recv(client, buf_recv, sizeof(buf_recv), 0);
     buf_recv[len] = 0;
     printf("Data received: %s\n", buf_recv);
-    // gui du lieu den server
+
     while(1){
         char buf[256];
         printf("\nEnter string: ");
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]){
         if(strncmp(buf,"exit", 4) == 0) 
             break;
     }
-    // ket thuc, dong socket
+
     close(client);
     return 0;
 }
