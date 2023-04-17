@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
     char *ip = argv[1];
     char *host = argv[2];
 
-    // khai bao socket
+ 
     int client = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     
     // khai bao dia chi server
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
         return -1;
     }
     
-    // gui du lieu den server
+
     while(1){
         char name[256], mssv[256], dob[256], point[256];
         printf("\nNhap MSSV: ");
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
         if(strncmp(mssv,"exit", 4) == 0) 
             break;
     }
-    // ket thuc, dong socket
+
     close(client);
     return 0;
 }
