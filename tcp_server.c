@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
         perror("listen() failed");
         return 1;
     }
-    // khai bao socket
+    
     struct sockaddr_in client_addr;
     int client_addr_len = sizeof(client_addr);
 
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
     }
     printf("New client connected!\n");
 
-    // read from file
+ 
     char *file_read = argv[2];
     if(!check_file(file_read)){
         return 1;
@@ -77,7 +77,7 @@ int main(int argc, char *argv[]){
     }
     
 
-    // write to file
+ 
     char *file_write = argv[3];
     if (!check_file(file_write))
         return 1;
